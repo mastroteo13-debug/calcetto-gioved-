@@ -15,5 +15,13 @@
     window.SUPABASE_KEY='sb_publishable_2DSUgbeIj8C2XVhrGLJo1Q_1vtnaEpx';
   </script>
   <script src="app.js"></script>
+  <script>
+    // Ricordi disattivato: nasconde anche il pulsante quando la navigazione viene ridisegnata.
+    const hideRicordi = () => [...document.querySelectorAll('#nav button')]
+      .filter(b => b.textContent.includes('Ricordi'))
+      .forEach(b => b.remove());
+    new MutationObserver(hideRicordi).observe(document.getElementById('nav'), {childList:true});
+    hideRicordi();
+  </script>
 </body>
 </html>
